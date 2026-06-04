@@ -1,30 +1,35 @@
 <script>
-    import {appSettings} from "./settings.svelte.ts"
+    import { appSettings } from "./settings.svelte.ts"
+    //icons
+    import Sun from '@lucide/svelte/icons/sun'
+    import Github from './assets/Github.svelte'
+
+
 </script>
 
-<div class="flex flex-col justify-between px-46 py-5 h-dvh {appSettings.colors.background}">
+<div class="flex flex-col justify-between px-44 py-5 h-dvh {appSettings.colors.background}">
     <header class="flex flex-row justify-between items-center">
-        <h1 class="font-cascadia text-3xl {appSettings.colors.muted}">
+        <h1 class="font-cascadia text-3xl {appSettings.colors.heading}">
             Vyktham
         </h1>     
 
-        <nav class="flex flex-row justify-center gap-4">
-            <h3 class="{appSettings.colors.muted}"> vim </h3> 
-            <h3 class="{appSettings.colors.muted}"> theme </h3> 
+        <nav class="flex flex-row justify-between items-center gap-10">
+            <h3 class="font-fragment {appSettings.colors.muted}"> <Sun size={19}/> </h3> 
+            <h3 class="font-fragment text-base {appSettings.colors.muted}"> settings </h3> 
         </nav>
     </header>
 
     <main>
-        <p> main part goes here </p>
+        <p class="text-center text-xl"> main part goes here </p>
     </main>
 
     <footer class="flex flex-row justify-between">
-        <section class="flex flex-row justify-center gap-4">
-            <h3 class="{appSettings.colors.muted}"> About </h3> 
-            <h3 class="{appSettings.colors.muted}">  </h3> 
+        <section class="flex flex-row justify-between gap-10">
+            <h3 class="font-fragment text-sm {appSettings.colors.muted}"> About </h3> 
+            <Github class="size-5 {appSettings.colors.muted}" />
         </section>
         <section>
-            <h3> 10:40 Thursday </h3>
+            <h3 class="text-sm {appSettings.colors.muted}"> 10:40 Thursday </h3>
         </section>
 
 

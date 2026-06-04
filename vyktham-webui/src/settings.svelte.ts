@@ -3,10 +3,15 @@ type Theme = "white" | "dark" | "catppuchin";
 const themeColorMap = {
     white: {
         background: "bg-white-100", 
-        muted: "text-slate-500"
+        heading: "text-slate-500",
+        hover: "text-slate-500",
+        muted: "text-slate-400"
     },
     dark: {
         background: "bg-slate-800",
+        heading: "text-slate-500",
+        hover: "text-slate-500",
+
         muted: "text-slate-400"
     },
     catppuchin: {
