@@ -2,6 +2,7 @@
     import { appSettings } from './settings.svelte.js'
     
     import Clock from './lib/Clock.svelte'
+    import MainBoard from './lib/MainBoard.svelte'
 
     //icons
     import Sun from '@lucide/svelte/icons/sun'
@@ -22,8 +23,8 @@
         </nav>
     </header>
 
-    <main>
-        <p class="text-center text-xl"> ""  </p>
+    <main class="flex-grow p-10">
+        <MainBoard />
     </main>
 
     <footer class="px-44 py-4 flex flex-row justify-between">
