@@ -1,5 +1,5 @@
-<script lang="ts">
-    import { appSettings } from './settings.svelte.ts'
+<script>
+    import { appSettings } from './settings.svelte.js'
     
     import Clock from './lib/Clock.svelte'
 

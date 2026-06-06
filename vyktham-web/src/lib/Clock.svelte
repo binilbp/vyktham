@@ -1,5 +1,5 @@
-<script lang="ts"> 
-    import { appSettings } from '../settings.svelte.ts'
+<script> 
+    import { appSettings } from '../settings.svelte.js'
     import { onMount } from 'svelte';
 
     const formatter = new Intl.DateTimeFormat([], {
@@ -7,10 +7,11 @@
         minute: '2-digit'
     });
 
-    let formattedTime: string = formatter.format(new Date());
+    // Wrapped in $state() so the UI updates every minute
+    let formattedTime = $state(formatter.format(new Date()));
 
     onMount(() => {
-        let timeout: ReturnType<typeof setTimeout>;
+        let timeout;
 
         const tick = () => {
           const now = new Date();
@@ -32,4 +33,3 @@
 </script>
 
 <span class="font-fragment text-sm {appSettings.colors.muted}">{formattedTime}</span>
-
