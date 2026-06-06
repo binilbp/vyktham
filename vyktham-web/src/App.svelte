@@ -10,8 +10,8 @@
 
 </script>
 
-<div class="flex flex-col justify-between px-44 py-5 h-dvh {appSettings.colors.background}">
-    <header class="flex flex-row justify-between items-center">
+<div class="flex flex-col justify-between  h-dvh {appSettings.colors.background}">
+    <header class="px-44 py-4 flex flex-row justify-between items-center ">
         <h1 class="font-cascadia text-2xl {appSettings.colors.heading}">
             Vyktham
         </h1>     
@@ -26,10 +26,13 @@
         <p class="text-center text-xl"> ""  </p>
     </main>
 
-    <footer class="flex flex-row justify-between">
+    <footer class="px-44 py-4 flex flex-row justify-between">
         <section class="flex flex-row justify-between gap-10">
             <h3 class="font-fragment text-sm {appSettings.colors.muted}"> About </h3> 
-            <Github class="size-5 {appSettings.colors.muted}" />
+            
+            <a href="https://github.com/binilbp/vyktham">
+                <Github class="size-5 {appSettings.colors.muted} {appSettings.colors.hover}" />
+            </a>
         </section>
         <section>
             <Clock />
