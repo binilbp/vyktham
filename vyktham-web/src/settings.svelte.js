@@ -19,7 +19,7 @@ import { z } from "zod";
 
 export const SettingsSchema = z.object({
     theme: z.enum(["white", "dark"]).default("white"),
-    font: z.enum(["jetbrains", "nunito"]).default("jetbrains"),
+    font: z.enum(["font-jetbrains", "font-nunito"]).default("font-jetbrains"),
 });
 
 class AppSettings {
