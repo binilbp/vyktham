@@ -25,7 +25,8 @@
     }
 
 </script>
-<div class ="flex flex-col gap-2 justify-start py-5 h-full">
+
+<div class ="flex flex-col gap-4 justify-start py-3 h-full">
     <ToolBar />
     <InputPanel {handleSubmit} />
 </div>

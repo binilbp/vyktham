@@ -23,7 +23,7 @@
             ],
             editorProps: {
                 attributes: {
-                    class: `h-full bg-white rounded-xl overflow-y-auto p-20 focus:outline-none ${appSettings.font}`,
+                    class: `prose prose-slate h-full bg-white overflow-y-auto p-20 focus:outline-none ${appSettings.font}`,
                 },
                 handleKeyDown: (view, event) => {
                     if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
