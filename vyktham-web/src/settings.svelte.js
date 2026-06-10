@@ -1,6 +1,6 @@
 const themeColorMap = {
     white: {
-        background: "bg-white-100", 
+        background: "bg-white", 
         heading: "text-slate-500",
         border: "border-slate-300",
         hover: "hover:text-slate-600",

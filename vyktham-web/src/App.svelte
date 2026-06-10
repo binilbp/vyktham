@@ -11,8 +11,8 @@
 
 </script>
 
-<div class="flex flex-col justify-between  h-dvh {appSettings.colors.background}">
-    <header class="px-44 py-4 flex flex-row justify-between items-center ">
+<div class="flex flex-col justify-between h-dvh {appSettings.colors.background}">
+    <header class="px-30 py-4 flex flex-row justify-between items-center ">
         <h1 class="font-cascadia text-2xl {appSettings.colors.heading}">
             Vyktham
         </h1>     
@@ -23,11 +23,11 @@
         </nav>
     </header>
 
-    <main class="flex-grow p-10">
+    <main class="px-34 flex-grow min-h-0">
         <MainBoard />
     </main>
 
-    <footer class="px-44 py-4 flex flex-row justify-between">
+    <footer class="px-30 py-4 flex flex-row justify-between ">
         <section class="flex flex-row justify-between gap-10">
             <h3 class="font-fragment text-sm {appSettings.colors.muted}"> About </h3> 
             
@@ -38,8 +38,6 @@
         <section>
             <Clock />
         </section>
-
-
     </footer>
 </div>
 
