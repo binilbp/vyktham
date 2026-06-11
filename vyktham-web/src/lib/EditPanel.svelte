@@ -2,11 +2,12 @@
     import { appSettings } from '../settings.svelte.js';
     import { onMount, onDestroy } from 'svelte';
 
+    import ToolBar from './ToolBar.svelte'
+
     import { Editor } from '@tiptap/core';
     import { StarterKit } from '@tiptap/starter-kit';
     import { Placeholder } from '@tiptap/extensions';
     import { Markdown } from '@tiptap/markdown'
-
 
     async function handleSubmit(tiptapMarkdown) {
         try {
@@ -34,7 +35,7 @@
 
 
     let element = $state();
-    let savedJSON ;
+    let editorLock = $state(false);
     let editorState = $state({editor: null});
 
 
@@ -51,7 +52,7 @@
             contentType: 'markdown',
             editorProps: {
                 attributes: {
-                    class: `prose prose-slate max-w-none h-full bg-white overflow-y-auto p-20 focus:outline-none ${appSettings.font}`,
+                    class: `prose prose-slate max-w-none h-full bg-white overflow-y-auto p-10 focus:outline-none ${appSettings.font}`,
                 },
                 handleKeyDown: (view, event) => {
                     if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
@@ -73,6 +74,12 @@
         editorState.editor?.destroy()
     })
 
+    function toggleEditorLock() {
+        editorLock = !editorLock;
+        editorState.editor.setEditable(!editorLock);
+        console.log("INFO: editorLock set to", editorLock);
+    }
+
 </script>
 
 <style>
@@ -85,8 +92,13 @@
     }
 </style>
 
-<div 
-    class = "h-full min-h-0 shadow-xl rounded-xl" 
-    bind:this={element}>
-</div>
+<div class = "flex flex-row justify-start gap-4 h-full" >
+    <ToolBar {toggleEditorLock} {editorLock}/>
 
+    <div 
+        class = "h-full shadow-xl rounded-xl flex-grow min-w-0" 
+        bind:this={element}>
+    </div>
+    <!-- min-w-0 allows the parent to be smaller than the child, without it grows forever -->
+
+</div>

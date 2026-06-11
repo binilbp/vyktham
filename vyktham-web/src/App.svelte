@@ -25,7 +25,7 @@
         </nav>
     </header>
 
-    <main class="px-34 flex-grow min-h-0">
+    <main class="px-10 flex-grow min-h-0">
         <MainBoard />
     </main>
 
