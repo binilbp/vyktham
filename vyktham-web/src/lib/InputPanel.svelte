@@ -1,16 +1,42 @@
 <script>
-    let {handleSubmit} = $props();
     import { appSettings } from '../settings.svelte.js';
     import { onMount, onDestroy } from 'svelte';
 
     import { Editor } from '@tiptap/core';
     import { StarterKit } from '@tiptap/starter-kit';
     import { Placeholder } from '@tiptap/extensions';
+    import { Markdown } from '@tiptap/markdown'
+
+
+    async function handleSubmit(tiptapMarkdown) {
+        try {
+            console.log('INFO: sending tiptapMarkdown');
+            const response = await fetch('http://localhost:8000/format_markdown', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({markdown: tiptapMarkdown})
+            });
+
+            const data = await response.json();
+            console.log('INFO: output recieved');
+            console.log('DEBUG: recieved makdown is :', data.markdown);
+
+            editorState.editor.commands.setContent(data.markdown, { contentType: 'markdown' } );
+            console.log('INFO: updated to ai markdown format');
+            
+
+        } catch (err) {
+            console.log('ERROR: tiptapjson not sent', err);
+        }
+    }
 
 
     let element = $state();
     let savedJSON ;
     let editorState = $state({editor: null});
+
 
     onMount(() => {
         editorState.editor = new Editor({
@@ -20,15 +46,17 @@
                 Placeholder.configure({
                     placeholder: 'Paste your mind here !',
                 }),
+                Markdown,
             ],
+            contentType: 'markdown',
             editorProps: {
                 attributes: {
-                    class: `prose prose-slate h-full bg-white overflow-y-auto p-20 focus:outline-none ${appSettings.font}`,
+                    class: `prose prose-slate max-w-none h-full bg-white overflow-y-auto p-20 focus:outline-none ${appSettings.font}`,
                 },
                 handleKeyDown: (view, event) => {
                     if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
-                        const userText = editorState.editor.getText(); 
-                        handleSubmit(userText);
+                        const ttMarkdown = editorState.editor.getMarkdown();
+                        handleSubmit(ttMarkdown);
                         return true; //key event handled
                     }
                     return false; //key not handled
