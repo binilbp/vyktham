@@ -9,7 +9,7 @@
 <div class ="flex flex-col justify-start gap-3">
 
     <button 
-    class ="{appSettings.colors.muted} rounded-xl p-2 hover:text-slate-500 hover:bg-slate-200"
+    class ="{appSettings.colors.muted} rounded-xl shadow-md p-2 hover:text-slate-500 bg-white hover:bg-slate-100"
     onclick = {toggleEditorLock}
     >
         {#if editorLock}

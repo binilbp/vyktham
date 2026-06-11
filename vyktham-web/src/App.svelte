@@ -13,7 +13,7 @@
 
 </script>
 
-<div class="flex flex-col justify-between h-dvh {appSettings.colors.background}">
+<div class="flex flex-col justify-between h-dvh {appSettings.colors.background} bg-[url('./assets/GridBackground.svg')] bg-repeat ">
     <header class="px-10 py-4 flex flex-row justify-between items-center ">
         <h1 class="font-cascadia text-2xl {appSettings.colors.heading}">
             Vyktham
