@@ -1,1 +1,2 @@
-<h2> this is editor panel </h2>
+<div  class = "bg-editor-base grow">
+</div>

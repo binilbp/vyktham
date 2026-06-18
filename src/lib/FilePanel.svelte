@@ -1,1 +1,2 @@
-<h2> this is File Panel </h2>
+<div class = "bg-panel-dark w-70">
+</div>
