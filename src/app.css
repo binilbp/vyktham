@@ -8,10 +8,11 @@
   --font-jetbrains: JetBrains Mono;
   --font-nunito: Nunito;
 
-  --color-text-ui: #D6D6D6;
-  --color-text-editor: #FFFFFF;
-  --color-bkg-low: #0D1821;
-  --color-bkg-base: #386641;
-  --color-bkg-high: #4E923A;
-  --color-editor-base: ##0F1C25;
+  --color-txt-ui: #D6D6D6;
+  --color-txt-editor: #FFFFFF;
+  --color-panel-dark: #0D1821;
+  --color-panel-base: #386641;
+  --color-panel-hover: #4B7D55;
+  --color-panel-active: #4E923A;
+  --color-editor-base: #0F1C25;
 }
