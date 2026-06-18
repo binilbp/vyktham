@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Fragment+Mono:ital@0;1&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-cascadia: Cascadia Mono;
+  --font-fragment: Fragment Mono;
+  --font-jetbrains: JetBrains Mono;
+  --font-nunito: Nunito;
+
+  --color-text-ui: #D6D6D6;
+  --color-text-editor: #FFFFFF;
+  --color-bkg-low: #0D1821;
+  --color-bkg-base: #386641;
+  --color-bkg-high: #4E923A;
+  --color-editor-base: ##0F1C25;
+}
