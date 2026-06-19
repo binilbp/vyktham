@@ -1,21 +1,20 @@
 <script>
+    import { invoke } from '@tauri-apps/api/core';
     import { onMount, onDestroy } from 'svelte';
 
     import { Editor } from '@tiptap/core';
     import { StarterKit } from '@tiptap/starter-kit';
     import { Placeholder } from '@tiptap/extensions';
     import { Markdown } from '@tiptap/markdown'
-
     async function handleSubmit(tiptapMarkdown) {
         try {
             console.log('INFO: sending tiptapMarkdown');
-            console.log('INFO: output recieved');
-            // console.log('DEBUG: recieved makdown is :', data.markdown);
-
-            editorState.editor.commands.setContent('makdown set', { contentType: 'markdown' } );
-            console.log('INFO: updated to ai markdown format');
-            
-
+            invoke('format_markdown', { text: tiptapMarkdown }).then((response) => {
+                console.log('INFO: output recieved');
+                editorState.editor.commands.setContent(response, { contentType: 'markdown' } );
+                console.log('INFO: updated to ai markdown format');
+                
+            });
         } catch (err) {
             console.log('ERROR: tiptapjson not sent', err);
         }
@@ -38,7 +37,7 @@
             contentType: 'markdown',
             editorProps: {
                 attributes: {
-                    class: "border-2 border-red-400 mx-auto max-w-none w-[80%] h-full break-words prose prose-slate prose-invert text-txt-editor text-xl font-jetbrains focus:outline-none",
+                    class: "pt-20 mx-auto max-w-none w-[80%] h-full break-words prose prose-slate prose-invert text-txt-editor text-lg font-jetbrains focus:outline-none",
                 },
                 handleKeyDown: (view, event) => {
                     if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
@@ -71,9 +70,9 @@
     }
 </style>
 
-<div class="border-amber-300 border-2 flex-1 min-w-0 min-h-0 bg-editor-base flex flex-col justify-start items-center">
+<div class=" flex-1 min-w-0 min-h-0 bg-editor-base flex flex-col justify-start items-center">
     <main 
-        class="border-blue-300 border-2 h-full w-full overflow-y-auto" 
+        class=" h-full w-full overflow-y-auto" 
         bind:this={element}>
     </main>
 </div>
